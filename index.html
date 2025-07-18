@@ -1,93 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <link rel="stylesheet" href="color.css">
   <meta charset="UTF-8">
   <title>Renk Oyunu</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      color: rgb(245, 245, 245);
-      font-family: 'Trebuchet MS';
-    }
-
-    body {
-      margin: 0;
-    }
-
-    .c_container {
-      width: 100%;
-      min-height: 100vh;
-      background-image: url("https://static.colourlovers.com/images/patterns/6039/6039703.png?1751558865");
-      background-size: 10%;
-      padding: 1rem;
-    }
-
-    .c_navbar, .c_text_area, .c_color_area, .c_buttons {
-      border: 1px solid black;
-      text-align: center;
-      margin-bottom: 1rem;
-      padding: 1rem;
-    }
-
-    .c_navbar h3, .c_text_area h3 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    .c_color_area {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .C_color_box {
-      width: 34%;
-      aspect-ratio: 1/1;
-      transition: 0.3s;
-    }
-
-    .C_color_box:hover {
-      cursor: pointer;
-      opacity: 0.8;
-      border-radius: 50%;
-    }
-
-    #one { background-color: red; }
-    #two { background-color: yellow; }
-    #three { background-color: blue; }
-    #four { background-color: purple; }
-
-    .c_buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .c_buttons button {
-      background-color: black;
-      border: 1px solid white;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    @media(max-width: 1000px){
-      .c_navbar h3 {
-        font-size: 1.5rem;
-      }  
-
-      .C_color_box {
-        width: 45%;
-      }
-
-      .c_buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="c_container">
@@ -121,91 +37,10 @@
     </div>
   </div>
 
-  <script>
-    const colors = [
-      { name: "KIRMIZI", id: "one", color: "red" },
-      { name: "SARI", id: "two", color: "yellow" },
-      { name: "MAVİ", id: "three", color: "blue" },
-      { name: "MOR", id: "four", color: "purple" }
-    ];
-
-    let progress = 0;
-    let gameStarted = false;
-    let timer = 30;
-    let timerInterval;
-
-    const progressDisplay = document.querySelector(".c_navbar h3");
-    const targetText = document.querySelector(".c_text_area h3");
-    const boxes = document.querySelectorAll(".C_color_box");
-    const timerDisplay = document.getElementById("timerDisplay");
-
-    const correctSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
-    const wrongSound = new Audio('https://www.soundjay.com/button/beep-09.wav');
-
-    function pickNewColor() {
-      const random = Math.floor(Math.random() * colors.length);
-      const chosen = colors[random];
-      targetText.textContent = chosen.name;
-      targetText.dataset.correctId = chosen.id;
-
-      
-      const randomColor = colors[Math.floor(Math.random() * colors.length)].color;
-      targetText.style.color = randomColor;
-    }
-
-    function startGame() {
-      progress = 0;
-      gameStarted = true;
-      timer = 30;
-      progressDisplay.textContent = `ILERLEME = ${progress}`;
-      pickNewColor();
-
-      
-      timerInterval = setInterval(() => {
-        timer--;
-        timerDisplay.textContent = timer;
-
-        if (timer <= 0) {
-          endGame();
-        }
-      }, 1000);
-    }
-
-    function resetGame() {
-      progress = 0;
-      gameStarted = false;
-      clearInterval(timerInterval);
-      timerDisplay.textContent = "30";
-      progressDisplay.textContent = `ILERLEME = ${progress}`;
-      targetText.textContent = "OYUN HAZIR";
-      targetText.style.color = "black";
-      delete targetText.dataset.correctId;
-    }
-
-    function endGame() {
-      alert(`Zaman doldu! Skorunuz: ${progress}`);
-      resetGame();
-    }
-
-    boxes.forEach(box => {
-      box.addEventListener("click", (e) => {
-        if (!gameStarted) return;
-
-        const correctId = targetText.dataset.correctId;
-        if (e.target.id === correctId) {
-          correctSound.play();
-          progress += 1;
-          progressDisplay.textContent = `ILERLEME = ${progress}`;
-          pickNewColor();
-        } else {
-          wrongSound.play();
-          alert("YANLIŞ RENK ");
-        }
-      });
-    });
-
-    document.getElementById("startBtn").addEventListener("click", startGame);
-    document.getElementById("resetBtn").addEventListener("click", resetGame);
-  </script>
+<script src="functions.js"></script>
+  <script src="color.js"></script>
+  
+   
+    
 </body>
 </html>
