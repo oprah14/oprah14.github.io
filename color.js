@@ -9,6 +9,8 @@
     let gameStarted = false;
     let timer = 30;
     let timerInterval;
+    let highScore = 0;
+    const highScoreDisplay = document.getElementById("highScoreDisplay");
 
     const progressDisplay = document.querySelector(".c_navbar h3");
     const targetText = document.querySelector(".c_text_area h3");
@@ -27,9 +29,6 @@
           progress += 1;
           progressDisplay.textContent = `ILERLEME = ${progress}`;
           pickNewColor();
-        } else {
-          wrongSound.play();
-          alert("YANLIŞ RENK ");
         }
       });
     });
