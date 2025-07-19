@@ -22,20 +22,28 @@ function startGame() {
           endGame();
         }
       }, 1000);
-    }
+    } 
 
 function resetGame() {
-      progress = 0;
-      gameStarted = false;
-      clearInterval(timerInterval);
-      timerDisplay.textContent = "30";
-      progressDisplay.textContent = `ILERLEME = ${progress}`;
-      targetText.textContent = "OYUN HAZIR";
-      targetText.style.color = "black";
-      delete targetText.dataset.correctId;
-    }
+  progress = 0;
+  gameStarted = false;
+  clearInterval(timerInterval);
+  timerDisplay.textContent = "30";
+  progressDisplay.textContent = `ILERLEME = ${progress}`;
+  targetText.textContent = "OYUN HAZIR";
+  targetText.style.color = "#fff";
+  delete targetText.dataset.correctId;
+    boxes.forEach(box => {
+    box.style.filter = "";
+  });
+}
 
-function endGame() {
-      alert(`Zaman doldu! Skorunuz: ${progress}`);
-      resetGame();
-    }
+ function endGame() {
+  if (progress > highScore) {
+    highScore = progress;
+    highScoreDisplay.textContent = highScore;
+  }
+  alert(`Zaman doldu! Skorunuz: ${progress}`);
+  resetGame();
+}
+    

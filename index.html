@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
   <link rel="stylesheet" href="color.css">
+  <link rel="stylesheet" href="new.css">
   <meta charset="UTF-8">
   <title>Renk Oyunu</title>
 </head>
@@ -11,6 +12,25 @@
     <div class="c_navbar">
       <h3>ILERLEME = 0</h3>
     </div>
+
+<!-- Timer -->
+  <div class="c_timer">
+    <p><strong>Kalan Süre:</strong> <span id="timerDisplay">30</span> saniye</p>
+  </div>
+
+  <!-- Counter -->
+<div class="c_navbar">
+  <h4>En Yüksek Puan: <span id="highScoreDisplay">0</span></h4>
+</div>
+
+<!-- Warning -->
+<div id="warning" style="display:none; color:#ff4444; font-size:1.5rem; text-align:center; font-weight:bold; margin-bottom:1rem;">
+  Yanlış renk!
+</div>
+
+
+
+
 
     <!-- Target Color -->
     <div class="c_text_area"> 
@@ -26,21 +46,14 @@
     </div>
 
     <!-- Buttons -->
-    <div class="c_buttons">
-      <button id="startBtn">Başla</button>
-      <button id="resetBtn">Sıfırla</button>
-    </div>
-
-    <!-- Timer -->
-    <div class="c_timer">
-      <p>Time Left: <span id="timerDisplay">30</span> seconds</p>
-    </div>
+  <div class="c_buttons">
+    <button id="startBtn">Başla</button>
+    <button id="resetBtn">Sıfırla</button>
+    <button id="hardBtn">Hard Mod</button>
   </div>
 
 <script src="functions.js"></script>
-  <script src="color.js"></script>
-  
-   
-    
+<script src="color.js"></script>  
+<script src="new.js"></script>    
 </body>
 </html>

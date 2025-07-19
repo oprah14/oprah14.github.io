@@ -11,7 +11,10 @@ body {
 .c_container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("https://static.colourlovers.com/images/patterns/6039/6039703.png?1751558865");
+  background-color: black; 
+    background-image: linear-gradient(45deg, #000000 25%, rgba(239, 239, 239, 0) 25%, rgba(239, 239, 239, 0) 75%, #000000 75%, #efefef),
+     linear-gradient(45deg, #efefef 25%, rgba(239, 239, 239, 0) 25%, rgba(239, 239, 239, 0) 75%, #efefef 75%, #efefef);
+
   background-size: 10%;
   padding: 1rem;
 }
@@ -21,9 +24,18 @@ body {
   text-align: center;
   margin-bottom: 1rem;
   padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
 }
 
 .c_navbar h3, .c_text_area h3 {
+  
   margin: 0;
   font-size: 2rem;
 }
@@ -79,5 +91,37 @@ body {
   .c_buttons {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .c_container {
+    padding: 0.5rem;
+  }
+  .c_navbar, .c_text_area, .c_color_area, .c_buttons, .c_timer {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+  .c_navbar h3, .c_text_area h3 {
+    font-size: 1.2rem;
+  }
+  .c_color_area {
+    gap: 0.5rem;
+  }
+  .C_color_box {
+    width: 80px;
+    min-width: 60px;
+    aspect-ratio: 1/1;
+  }
+  .c_buttons button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  #timerDisplay {
+    font-size: 2rem;
+  }
+  #highScoreDisplay {
+    font-size: 1.2rem;
   }
 }
