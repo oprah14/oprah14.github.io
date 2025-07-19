@@ -37,12 +37,13 @@ boxes.forEach(box => {
       pickNewColor();
     } else {
       wrongSound.play();
-      // alert("YANLIŞ RENK "); // Bunu kaldır!
+    
       warning.style.display = "block";
       setTimeout(() => {
         warning.style.display = "none";
-        pickNewColor(); // Hemen yeni renge geç!
-      }, 1000); // 1 saniye uyarı göster
+        pickNewColor(); 
+      }, 1000); 
     }
   });
 });
+

@@ -22,15 +22,7 @@
     boxes.forEach(box => {
       box.addEventListener("click", (e) => {
         if (!gameStarted) return;
-
-        const correctId = targetText.dataset.correctId;
-        if (e.target.id === correctId) {
-          correctSound.play();
-          progress += 1;
-          progressDisplay.textContent = `ILERLEME = ${progress}`;
-          pickNewColor();
-        }
-      });
+       });
     });
 
     document.getElementById("startBtn").addEventListener("click", startGame);
