@@ -3,7 +3,7 @@ document.getElementById("hardBtn").addEventListener("click", startHardMode);
 function startHardMode() {
   progress = 0;
   gameStarted = true;
-  timer = 15; // Daha kısa süre
+  timer = 15; 
   progressDisplay.textContent = `ILERLEME = ${progress}`;
   targetText.textContent = "HARD MOD!";
   targetText.style.color = "#ff4444";
